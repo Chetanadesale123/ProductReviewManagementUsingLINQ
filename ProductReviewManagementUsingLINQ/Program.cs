@@ -18,9 +18,9 @@ class Program
         reviewList.Add(new ProductReview() { ProductId = 10, UserId = 120, Rating = 5, Review = "best", IsLike = true });
         reviewList.Add(new ProductReview() { ProductId = 11, UserId = 121, Rating = 4, Review = "better", IsLike = true });
         reviewList.Add(new ProductReview() { ProductId = 12, UserId = 122, Rating = 4, Review = "better", IsLike = true });
-        reviewList.Add(new ProductReview() { ProductId = 13, UserId = 123, Rating = 2, Review = "bad", IsLike = false });
+        reviewList.Add(new ProductReview() { ProductId = 10, UserId = 123, Rating = 2, Review = "bad", IsLike = false });
         reviewList.Add(new ProductReview() { ProductId = 14, UserId = 124, Rating = 1, Review = "worst", IsLike = false });
-        reviewList.Add(new ProductReview() { ProductId = 15, UserId = 125, Rating = 5, Review = "best", IsLike = true });
+        reviewList.Add(new ProductReview() { ProductId = 10, UserId = 125, Rating = 5, Review = "best", IsLike = true });
         reviewList.Add(new ProductReview() { ProductId = 16, UserId = 126, Rating = 5, Review = "best", IsLike = true });
         reviewList.Add(new ProductReview() { ProductId = 17, UserId = 127, Rating = 4, Review = "better", IsLike = true });
         reviewList.Add(new ProductReview() { ProductId = 18, UserId = 128, Rating = 4, Review = "better", IsLike = true });
@@ -34,7 +34,7 @@ class Program
         bool end = true;
         while (end)
         {
-            Console.WriteLine("\nSelect Option\n1.CreateProductReview\n 2.Retrive Top 3 Records \n 3.Retrive Top 3 Record With Product Id \n 4.End Of Program");
+            Console.WriteLine("\nSelect Option\n1.CreateProductReview\n 2.Retrive Top 3 Records \n 3.Retrive Top 3 Record With Product Id \n 4.Get Top Records Count With ProductId \n 5.End Of Program");
             Console.WriteLine("\nEnter Option For Exicute The Program");
             int option = Convert.ToInt16(Console.ReadLine());
             Operations operations = new Operations();
@@ -50,6 +50,9 @@ class Program
                     operations.GetTopRecordsWithProductId(reviewList);
                     break;
                 case 4:
+                    operations.GetTopRecordsCountWithProductId(reviewList);
+                    break;
+                case 5:
                     end = false;
                     break;
                 default:
