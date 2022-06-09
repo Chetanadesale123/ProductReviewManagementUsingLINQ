@@ -63,10 +63,10 @@ namespace ProductReviewManagementUsingLINQ
             dt.Rows.Add("1", "111", "5", "best", "true");
             dt.Rows.Add(2, 112, 5, "best", true);
             dt.Rows.Add(3, 113, 4, "better", true);
-            dt.Rows.Add(4, 114, 3, "Good", true);
+            dt.Rows.Add(4, 114, 3, "Nice", true);
             dt.Rows.Add(5, 115, 5, "best", true);
             dt.Rows.Add(6, 116, 4, "better", true);
-            dt.Rows.Add(7, 117, 3, "Good", true);
+            dt.Rows.Add(7, 117, 3, "Nice", true);
             dt.Rows.Add(8, 118, 4, "better", true);
             dt.Rows.Add(9, 119, 1, "worst", false);
             dt.Rows.Add(10, 120, 5, "best", true);
@@ -78,12 +78,12 @@ namespace ProductReviewManagementUsingLINQ
             dt.Rows.Add(16, 126, 5, "best", true);
             dt.Rows.Add(17, 127, 4, "better", true);
             dt.Rows.Add(18, 128, 4, "better", true);
-            dt.Rows.Add(19, 129, 3, "Good", true);
-            dt.Rows.Add(20, 130, 3, "Good", true);
+            dt.Rows.Add(19, 129, 3, "Nice", true);
+            dt.Rows.Add(20, 130, 3, "Nice", true);
             dt.Rows.Add(21, 131, 2, "better", true);
             dt.Rows.Add(22, 132, 5, "best", true);
             dt.Rows.Add(23, 133, 4, "better", true);
-            dt.Rows.Add(24, 134, 3, "Good", true);
+            dt.Rows.Add(24, 134, 3, "Nice", true);
             dt.Rows.Add(25, 135, 2, "bad", false);
 
             foreach (DataRow row in dt.Rows)
@@ -104,6 +104,15 @@ namespace ProductReviewManagementUsingLINQ
             foreach (var list in result)
             {
                 Console.WriteLine("Product ID : " + list.ProductId + " " + "Average :" + " " + list.Review);
+            }
+        }
+        public void NiceReview(List<ProductReview> list)
+        {
+            var result = (from productReviews in list where productReviews.Review == "Nice" select productReviews);
+            foreach (var data in result)
+            {
+                Console.WriteLine("ProductID:- " + data.ProductId + " " + "UserID:- " + data.UserId
+                      + " " + "Rating:- " + data.Rating + " " + "Review:- " + data.Review + " " + "IsLike:- " + data.IsLike);
             }
         }
     }
