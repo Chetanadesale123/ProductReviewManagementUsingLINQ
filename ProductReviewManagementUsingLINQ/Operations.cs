@@ -26,6 +26,11 @@ namespace ProductReviewManagementUsingLINQ
                 Console.WriteLine(data.ProductID + " " + data.Count);
             }
         }
+        public void GetAllRecords(List<ProductReview> list)
+        {
+            var result = list.OrderBy(x => x.ProductId).Select(x => new { productId = x.ProductId, Review = x.Review });
+            Display(result);
+        }
         public void Display(List<ProductReview> list)
         {
             //Display list
