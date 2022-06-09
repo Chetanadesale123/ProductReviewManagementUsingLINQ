@@ -70,19 +70,19 @@ namespace ProductReviewManagementUsingLINQ
             dt.Rows.Add(8, 118, 4, "better", true);
             dt.Rows.Add(9, 119, 1, "worst", false);
             dt.Rows.Add(10, 120, 5, "best", true);
-            dt.Rows.Add(11, 121, 4, "better", true);
+            dt.Rows.Add(11, 10, 4, "better", true);
             dt.Rows.Add(12, 122, 4, "better", true);
             dt.Rows.Add(13, 123, 2, "bad", false);
             dt.Rows.Add(14, 124, 1, "worst", false);
-            dt.Rows.Add(15, 125, 5, "best", true);
+            dt.Rows.Add(15, 10, 5, "best", true);
             dt.Rows.Add(16, 126, 5, "best", true);
             dt.Rows.Add(17, 127, 4, "better", true);
-            dt.Rows.Add(18, 128, 4, "better", true);
-            dt.Rows.Add(19, 129, 3, "Nice", true);
-            dt.Rows.Add(20, 130, 3, "Nice", true);
+            dt.Rows.Add(18, 10, 4, "better", true);
+            dt.Rows.Add(19, 10, 3, "Nice", true);
+            dt.Rows.Add(20, 10, 3, "Nice", true);
             dt.Rows.Add(21, 131, 2, "better", true);
             dt.Rows.Add(22, 132, 5, "best", true);
-            dt.Rows.Add(23, 133, 4, "better", true);
+            dt.Rows.Add(23, 10, 4, "better", true);
             dt.Rows.Add(24, 134, 3, "Nice", true);
             dt.Rows.Add(25, 135, 2, "bad", false);
 
@@ -113,6 +113,14 @@ namespace ProductReviewManagementUsingLINQ
             {
                 Console.WriteLine("ProductID:- " + data.ProductId + " " + "UserID:- " + data.UserId
                       + " " + "Rating:- " + data.Rating + " " + "Review:- " + data.Review + " " + "IsLike:- " + data.IsLike);
+            }
+        }
+        public void RetriviewingOnlyParticularUserId(List<ProductReview> reviewlist)
+        {
+            var recordData = from ProductReview in reviewlist where ProductReview.UserId == 10 orderby ProductReview.Rating select ProductReview;
+            foreach (var list in recordData)
+            {
+                Console.WriteLine("Product ID:" + list.ProductId + " " + "User Id :" + list.UserId + " " + " Rating:" + list.Rating + " " + "Review:" + list.Review + " " + " IsLike :" + list.IsLike);
             }
         }
     }
