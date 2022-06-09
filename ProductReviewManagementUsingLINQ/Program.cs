@@ -31,10 +31,7 @@ class Program
         reviewList.Add(new ProductReview() { ProductId = 23, UserId = 133, Rating = 4, Review = "better", IsLike = true });
         reviewList.Add(new ProductReview() { ProductId = 24, UserId = 134, Rating = 3, Review = "Good", IsLike = true });
         reviewList.Add(new ProductReview() { ProductId = 25, UserId = 135, Rating = 2, Review = "bad", IsLike = false });
-        //Display List
-        foreach (var item in reviewList)
-        {
-          Console.WriteLine("Product Id :"+ item.ProductId +" " + " UserId :" + item.UserId +" " + "Rating:"+ item.Rating +" " + "Review: " + item.Review +" " + "IsLike :" + item.IsLike);
-        }
+        Operations op = new Operations();
+        op.GetTop3Records(reviewList);
     }
 }
