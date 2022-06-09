@@ -9,7 +9,7 @@ class Program
         reviewList.Add(new ProductReview() { ProductId = 1, UserId = 111, Rating = 5, Review = "best", IsLike = true });
         reviewList.Add(new ProductReview() { ProductId = 2, UserId = 112, Rating = 5, Review = "best", IsLike = true });
         reviewList.Add(new ProductReview() { ProductId = 3, UserId = 113, Rating = 4, Review = "better", IsLike = true });
-        reviewList.Add(new ProductReview() { ProductId = 4, UserId = 114, Rating = 3, Review = "Good", IsLike = true });
+        reviewList.Add(new ProductReview() { ProductId = 4, UserId = 114, Rating = 4, Review = "better", IsLike = true });
         reviewList.Add(new ProductReview() { ProductId = 5, UserId = 115, Rating = 5, Review = "best", IsLike = true });
         reviewList.Add(new ProductReview() { ProductId = 6, UserId = 116, Rating = 4, Review = "better", IsLike = true });
         reviewList.Add(new ProductReview() { ProductId = 7, UserId = 117, Rating = 3, Review = "Good", IsLike = true });
@@ -31,7 +31,33 @@ class Program
         reviewList.Add(new ProductReview() { ProductId = 23, UserId = 133, Rating = 4, Review = "better", IsLike = true });
         reviewList.Add(new ProductReview() { ProductId = 24, UserId = 134, Rating = 3, Review = "Good", IsLike = true });
         reviewList.Add(new ProductReview() { ProductId = 25, UserId = 135, Rating = 2, Review = "bad", IsLike = false });
-        Operations op = new Operations();
-        op.GetTop3Records(reviewList);
+        bool end = true;
+        while (end)
+        {
+            Console.WriteLine("\nSelect Option\n1.CreateProductReview\n 2.Retrive Top 3 Records \n 3.Retrive Top 3 Record With Product Id \n 4.End Of Program");
+            Console.WriteLine("\nEnter Option For Exicute The Program");
+            int option = Convert.ToInt16(Console.ReadLine());
+            Operations operations = new Operations();
+            switch (option)
+            {
+                case 1:
+                    operations.Display(reviewList);
+                    break;
+                case 2:
+                    operations.GetTop3Records(reviewList);
+                    break;
+                case 3:
+                    operations.GetTopRecordsWithProductId(reviewList);
+                    break;
+                case 4:
+                    end = false;
+                    break;
+                default:
+                    Console.WriteLine("\n Invalid Option");
+                    break;
+            }
+        }
     }
 }
+    
+
