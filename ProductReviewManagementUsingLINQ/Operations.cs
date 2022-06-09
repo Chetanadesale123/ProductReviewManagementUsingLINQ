@@ -29,7 +29,11 @@ namespace ProductReviewManagementUsingLINQ
         public void GetAllRecords(List<ProductReview> list)
         {
             var result = list.OrderBy(x => x.ProductId).Select(x => new { productId = x.ProductId, Review = x.Review });
-            
+            foreach (var data in result)
+            {
+                Console.WriteLine(data.productId + "|" + data.Review);
+            }
+
         }
         public void SkipTop5Records(List<ProductReview> list)
         {
