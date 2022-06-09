@@ -34,7 +34,7 @@ class Program
         bool end = true;
         while (end)
         {
-            Console.WriteLine("\nSelect Option\n1.CreateProductReview\n 2.Retrive Top 3 Records \n 3.Retrive Top 3 Record With Product Id \n 4.Get Top Records Count With ProductId \n 5.Retrieve Only ProductId And Review \n 6. Skip Top 5 Records \n7.Create DataTable \n 8.End Of Program");
+            Console.WriteLine("\nSelect Option\n1.CreateProductReview\n 2.Retrive Top 3 Records \n 3.Retrive Top 3 Record With Product Id \n 4.Get Top Records Count With ProductId \n 5.Retrieve Only ProductId And Review \n 6. Skip Top 5 Records \n7.Create DataTable \n 8.Find average rating\n 9.End Of Program");
             Console.WriteLine("\nEnter Option For Exicute The Program");
             int option = Convert.ToInt16(Console.ReadLine());
             Operations operations = new Operations();
@@ -62,6 +62,9 @@ class Program
                     operations.Datatables();
                     break;
                 case 8:
+                    operations.AvgRating(reviewList);
+                    break;
+                case 9:
                     end = false;
                     break;
                 default:
